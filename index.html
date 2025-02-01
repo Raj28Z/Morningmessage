@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Morning & Happy Anniversary!</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffe0b2, #ffcc80); /* Soft orange gradient */
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            color: #e65100; /* Dark orange heading */
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            animation: fadeInUp 1.8s ease-in-out; /* Smoother */
+        }
+
+        p {
+            color: #ef6c00; /* Deeper orange text */
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            animation: fadeInUp 2s ease-in-out; /* Smoother */
+        }
+
+        .heart {
+            width: 100px;
+            height: 90px;
+            background-image: url("https://i.postimg.cc/SxHgFnGc/Screenshot-2025-0202-002600.png");
+            background-size: cover;
+            position: relative;
+            animation: pulse 2.4s infinite ease-in-out; /* Smoother pulse */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); } /* Very subtle pulse */
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(6px); /* Tiny movement */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message {
+            background-color: rgba(255, 255, 255, 0.4); /* More transparent */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.01); /* Almost invisible shadow */
+            animation: fadeInUp 2.2s ease-in-out; /* Smoother */
+        }
+
+        .falling-leaf {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url("cover.jpg"); /* Replace with your leaf image */
+            background-size: cover;
+            animation: fall 6s linear infinite; /* Adjust duration as needed */
+            opacity: 0; /* Start hidden */
+        }
+
+        @keyframes fall {
+            0% { transform: translate3d(var(--x), -50px, 0) rotate(0deg); opacity: 0;} /* Start above */
+            70% { opacity: 1; } /* Fade in */
+            100% { transform: translate3d(var(--x), 100vh, 0) rotate(360deg); opacity: 0; } /* Fall and rotate */
+        }
+
+        .cloud {
+            position: absolute;
+            width: 120px; /* Adjust cloud size */
+            height: 70px; /* Adjust cloud size */
+            background-image: url("dj.jpg"); /* Replace with your cloud image */
+            background-size: cover;
+            animation: cloudMove 12s linear infinite; /* Adjust duration */
+            opacity: 0.7; /* Adjust transparency */
+        }
+
+        @keyframes cloudMove {
+            0% { transform: translateX(-25vw); } /* Start off-screen left */
+            100% { transform: translateX(125vw); } /* Move off-screen right */
+        }
+
+        .cloud2 {
+            /* Same as .cloud but with different animation */
+            animation: cloudMove2 18s linear infinite; /* Different duration */
+            width: 160px; /* Slightly larger */
+            height: 90px;
+            opacity: 0.5;
+            background-image: url("image.png"); /* New cloud image */
+        }
+
+        @keyframes cloudMove2 {
+            0% { transform: translateX(125vw); } /* Start off-screen right */
+            100% { transform: translateX(-25vw); } /* Move off-screen left */
+        }
+
+        .butterfly {
+            position: absolute;
+            width: 30px;
+            height: 25px;
+            background-image: url("butterfly.gif"); /* Animated butterfly GIF */
+            background-size: cover;
+            animation: butterflyFly 8s linear infinite;
+        }
+
+        @keyframes butterflyFly {
+            0% { transform: translate(-10vw, 20vh); opacity: 0; }
+            20% { opacity: 1; }
+            80% { transform: translate(110vw, 50vh); opacity: 1; }
+            100% { transform: translate(110vw, 50vh); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Good Morning, My Love!</h1>
+        <div class="heart"></div>
+        <div class="message">
+            <p>Happy Anniversary! Wishing you a day as beautiful as you are. Every morning with you is a dream come true. I love you more than ever.</p>
+        </div>
+
+        <div class="butterfly"></div> <div class="butterfly" style="animation-delay: 3s; top: 70vh; left: 10vw;"></div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="birds.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Confetti (same as before)
+        const numConfetti = 150;
+        const container = document.querySelector('.container');
+        for (let i = 0; i < numConfetti; i++) { /* ... */ }
+
+        // Falling Leaves (same as before)
+        const numLeaves = 50;
+        for (let i = 0; i < numLeaves; i++) { /* ... */ }
+
+        // Clouds (modified for new images)
+        const containerClouds = document.querySelector('.container');
+        const cloud = document.createElement('div');
+        cloud.classList.add('cloud');
+        cloud.style.top = "15%"; // Adjusted position
+        containerClouds.appendChild(cloud);
+
+        const cloud2 = document.createElement('div');
+        cloud2.classList.add('cloud2');
+        cloud2.style.top = "55%"; // Adjusted position
+        containerClouds.appendChild(cloud2);
+
+    </script>
+
+</body>
+</html>
